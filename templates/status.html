@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card p-4">
+
+<h3>Violation Status</h3>
+
+<p><b>Vehicle:</b> {{record.vehicle_no}}</p>
+<p><b>Type:</b> {{record.violation_type}}</p>
+<p><b>Location:</b> {{record.location}}</p>
+<p><b>Date:</b> {{record.date}}</p>
+<p><b>Fine:</b> ₹{{record.fine_amount}}</p>
+
+<h4>Status: 
+<span class="badge bg-{% if record.status=='Paid' %}success{% else %}danger{% endif %}">
+{{record.status}}
+</span>
+</h4>
+
+</div>
+
+{% endblock %}
