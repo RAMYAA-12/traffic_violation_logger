@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Violation History</h3>
+
+<form class="mb-3">
+<input name="vehicle" class="form-control" placeholder="Search by Vehicle Number">
+</form>
+
+<table class="table table-bordered bg-white">
+<tr>
+<th>ID</th>
+<th>Vehicle</th>
+<th>Type</th>
+<th>Location</th>
+<th>Date</th>
+<th>Fine</th>
+<th>Status</th>
+<th>QR</th>
+<th>Action</th>
+</tr>
+
+{% for r in records %}
+<tr>
+<td>{{r.id}}</td>
+<td>{{r.vehicle_no}}</td>
+<td>{{r.violation_type}}</td>
+<td>{{r.location}}</td>
+<td>{{r.date}}</td>
+<td>{{r.fine_amount}}</td>
+<td>{{r.status}}</td>
+
+<td>
+<img src="{{url_for('static',filename='qr_codes/'+r.id|string+'.png')}}" width="60">
+</td>
+
+<td>
+<a href="/update/{{r.id}}" class="btn btn-sm btn-warning">Toggle</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
