@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Add Violation</h3>
+
+<form method="POST" class="card p-4">
+
+<div class="mb-2">
+<input name="vehicle" class="form-control" placeholder="Vehicle Number" required>
+</div>
+
+<div class="mb-2">
+<input name="type" class="form-control" placeholder="Violation Type">
+</div>
+
+<div class="mb-2">
+<input name="location" class="form-control" placeholder="Location">
+</div>
+
+<div class="mb-2">
+<input name="date" type="date" class="form-control">
+</div>
+
+<div class="mb-2">
+<input name="fine" class="form-control" placeholder="Fine Amount">
+</div>
+
+<button class="btn btn-primary">Add Violation</button>
+
+</form>
+
+{% endblock %}
